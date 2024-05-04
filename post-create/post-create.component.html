@@ -1,0 +1,22 @@
+<div class="newPost">
+    <mat-card>
+        <form [formGroup]="postForm" (ngSubmit)="onSavePost()">
+            <mat-form-field class="example-form-field">
+                <input matInput type="text" formControlName="title" >
+                <mat-error *ngIf="postForm.get('title')?.invalid">
+                    {{ errorMessages.required }}
+                  </mat-error>
+              </mat-form-field>
+            <mat-card-content>   
+                    <mat-form-field class="example-full-width">
+                        <textarea matInput rows="6" formControlName="content" ></textarea>
+                        <mat-error *ngIf="postForm.get('title')?.invalid">
+                            {{ errorMessages.required }}
+                          </mat-error>
+                    </mat-form-field>
+                    <br>
+                    <button type="submit" mat-raised-button color="accent" >Save Post</button>
+            </mat-card-content>
+        </form>
+    </mat-card>
+</div>
